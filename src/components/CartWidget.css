@@ -1,0 +1,20 @@
+.container svg {
+    color: #A22E9E;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.cartNumber {
+    margin-left: 3px;
+    margin-top: 20px;
+    background: #A22E9E;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2px;
+    font-size: 13px;
+}
