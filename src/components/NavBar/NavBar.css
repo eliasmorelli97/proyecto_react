@@ -2,3 +2,7 @@
     color: #A22E9E;
     text-decoration: none;
 }
+
+.link:hover {
+    color: #ca8fc8;
+}
