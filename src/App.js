@@ -9,7 +9,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename='/proyecto_react'>
         <NavBar />
         <Routes>
           <Route path='/' element={<ItemListContainer greeting={'Bienvenido a Hardware Knights'} />} />

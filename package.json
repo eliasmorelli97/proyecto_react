@@ -21,6 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://eliasmorelli97.github.io/proyecto_react/",
   "eslintConfig": {
     "extends": [
       "react-app",
