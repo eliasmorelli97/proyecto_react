@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, getFirestore } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 export const getAllProducts = () => {
   const db = getFirestore();
