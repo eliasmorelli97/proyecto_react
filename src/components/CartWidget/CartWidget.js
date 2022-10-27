@@ -1,15 +1,21 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import CartContext from '../../contexts/CartContext';
 import './CartWidget.css';
+import { Badge } from 'react-bootstrap';
 
 const CartWidget = () => {
+    const { totalQuantity } = useContext(CartContext);
     return (
-        <Link as={Link} to='/cart'>
-            <div class='cartWidget'>
+        <>
+            <Link as={Link} to='/cart'>
                 <FaShoppingCart />
-                <span className="cartNumber">3</span>
-            </div>
-        </Link>
+            </Link>
+            {totalQuantity > 0 && (
+                <Badge pill bg="danger">{totalQuantity}</Badge>
+            )}
+        </>
     );
 }
  

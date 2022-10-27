@@ -10,52 +10,6 @@ import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firesto
 import { CartProvider } from './contexts/CartContext';
 
 function App() {
-  // Acceso a un documento específico -> detail
-  useEffect(() => {
-    // Obtenemos la base de datos
-    const db = getFirestore();
-
-    // Obtener referencia al documento
-    const itemReference = doc(db, 'items', 'yXBWQWLFmCWRyA7LIMMv');
-
-    // Obtener el documento a partir de la referencia
-    getDoc(itemReference)
-      .then((snapshot) => {
-        // Preguntamos si el documento existe
-        if (snapshot.exists) {
-          // Armamos un objeto literal con el id y los demas campos del documento
-          const item = {
-            id: snapshot.id,
-            ...snapshot.data()
-          };
-        }
-
-      })
-      .catch(error => console.warn(error))
-  }, []);
-
-  // Acceso a una coleccion de documentos -> list
-  useEffect(() => {
-    // Obtenemos la base de datos
-    const db = getFirestore();
-
-    // Obtenemos la referencia a la colleccion 'items'
-    const collectionReference = collection(db, 'items');
-
-    // Obtenemos los datos a partir de la referencia
-    getDocs(collectionReference)
-      .then((snapshot) => {
-        // Armamos un listado de objetos literales con los id y los demas campos de cada documento
-        const list = snapshot
-          .docs
-          .map((doc) => ({
-            id: doc.id,
-            ...doc.data()
-          }));
-      })
-      .catch(error => console.warn(error))
-  }, []);
-
   return (
     <div className="App">
       <BrowserRouter basename='/proyecto_react'>
