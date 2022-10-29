@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import './ItemListContainer.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAllProducts, getProduct, getProductsByCategory } from '../../utils/products';
+import { getAllProducts, getProductsByCategory } from '../../utils/products';
 
 const ItemListContainer = ({ greeting }) => {
     const { categoryId } = useParams();
@@ -22,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
       }, [categoryId])
 
     return (
-        <Container>
+        <Container> 
             <h1 className="greeting">{greeting}</h1>
             <ItemList products={products} />
         </Container>

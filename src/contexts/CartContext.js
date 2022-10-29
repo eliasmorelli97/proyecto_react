@@ -15,17 +15,10 @@ export const CartProvider = ({ children }) => {
             };
             setCart([...cart, item]);
         } else {
-            // Busca el item en el carrito, en el array,
-            // su ubicacion para despues poder actualizar este item
-            const itemIndex = cart.findIndex((item) => item.id === parseInt(product.id));
-            // Creo un borrador del item para poder modificarlo
-            // evitando la modificacion del estado de react
+            const itemIndex = cart.findIndex((item) => item.id === product.id);
             const itemDraft = {...cart[itemIndex]};
-            // Actualizo la quantity en el borrador
             itemDraft.quantity = itemDraft.quantity + quantity;
-            // Creo un borrador del carrito para poder actualizar el item
             const cartDraft = [...cart];
-            // Actualizo el carrito borrador, sin tocar el estado react
             cartDraft[itemIndex] = itemDraft;
             setCart(cartDraft);
         }
@@ -40,14 +33,22 @@ export const CartProvider = ({ children }) => {
         setCart([]);
     }
 
-    const isInCart = (id) => cart.some((item) => item.id === parseInt(id));
+    const isInCart = (id) => cart.some((item) => item.id === id);
 
     const total = cart.reduce((count, item) => count + (item.price * item.quantity), 0);
 
     const totalQuantity = cart.reduce((count, item) => count + item.quantity, 0);
 
+    const [buyer, setBuyer] = useState({
+        name: '',
+        surname: '',
+        phone: '',
+        email: '',
+        repeatEmail: ''
+    });
+
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, total, totalQuantity }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clear, isInCart, total, totalQuantity, buyer, setBuyer }}>
             { children }
         </CartContext.Provider>
     )

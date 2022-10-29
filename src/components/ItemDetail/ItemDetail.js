@@ -19,21 +19,23 @@ const ItemDetail = ({ product }) => {
 
   return (
     <div className='itemDetailContainer'>
-      <Item product={product} />
-      {
-        showItemCount && (
-          <ItemCount initial={1} stock={10} onAdd={handleAdd} />
-        )
-      }
-      {
-        !showItemCount && (
-          <Link to='/cart'>
-            <Button variant="success">
-              Ir al Carrito
-            </Button>
-          </Link>
-        )
-      }
+      <Item product={product} showDescription={true} showDetailButton={false} />
+      <div>
+        {
+          showItemCount && (
+            <ItemCount initial={1} stock={10} onAdd={handleAdd} />
+          )
+        }
+        {
+          !showItemCount && (
+            <Link to='/cart'>
+              <Button variant="success">
+                Ir al Carrito
+              </Button>
+            </Link>
+          )
+        }
+      </div>
     </div>
   );
 }
