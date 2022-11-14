@@ -23,6 +23,10 @@ const Cart = () => {
 
   const handleLoading = () => setShowLoading(true);
 
+  const handleClear = () => {
+    clear();
+  }
+
   const handleBuy = async () => {
     let todayDate = new Date();
     todayDate = todayDate.toLocaleDateString();
@@ -68,7 +72,10 @@ const Cart = () => {
             </tbody>
           </Table>
           <h3>Total: ${total}</h3>
-          <Button variant="success" onClick={handleOpen}>Realizar compra</Button>
+          <div className="buttonsContainer">
+            <Button variant="danger" onClick={handleClear}>Vaciar Carrito</Button>
+            <Button variant="success" onClick={handleOpen}>Realizar compra</Button>
+          </div>
         </>
       }
       {!showTable && (

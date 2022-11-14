@@ -2,3 +2,9 @@
     color: red;
     cursor: pointer;
 }
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
